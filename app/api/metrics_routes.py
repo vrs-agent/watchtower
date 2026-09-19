@@ -52,6 +52,16 @@ def details_endpoint(
     return details.details(limit=limit)
 
 
+@router.get("/docker/images")
+def docker_images_endpoint() -> dict:
+    return docker_mod.images()
+
+
+@router.get("/docker/networks")
+def docker_networks_endpoint() -> dict:
+    return docker_mod.networks()
+
+
 @router.get("/docker")
 def docker_endpoint() -> dict:
     """Running containers with live CPU/mem/net/blkio, or available=False."""
